@@ -1,0 +1,2244 @@
+{
+  "acetaminophen": [
+    "N02BE",
+    "N02AJ",
+    "N02AJ"
+  ],
+  "ibuprofen": [
+    "N02AJ",
+    "N02AJ",
+    "C01EB",
+    "G02CC",
+    "M01AE",
+    "M02AA",
+    "R02AX",
+    "N02AJ"
+  ],
+  "amoxicillin": [
+    "A02BD",
+    "J01CA"
+  ],
+  "lidocaine": [
+    "C01BB",
+    "C05AD",
+    "D04AB",
+    "N01BB",
+    "R02AD",
+    "S01HA",
+    "S02DA"
+  ],
+  "diclofenac": [
+    "D11AX",
+    "M01AB",
+    "M02AA",
+    "S01BC"
+  ],
+  "dexamethasone": [
+    "A01AC",
+    "C05AA",
+    "D07AB",
+    "D07XB",
+    "D10AA",
+    "H02AB",
+    "R01AD",
+    "S01BA",
+    "S01CB",
+    "S02BA",
+    "S03BA"
+  ],
+  "azithromycin": [
+    "J01FA",
+    "S01AA"
+  ],
+  "betamethasone": [
+    "A07EA",
+    "C05AA",
+    "D07AC",
+    "D07XC",
+    "H02AB",
+    "R01AD",
+    "R03BA",
+    "S01BA",
+    "S01CB",
+    "S02BA",
+    "S03BA"
+  ],
+  "pregabalin": [
+    "N02BF"
+  ],
+  "levofloxacin": [
+    "J01MA",
+    "S01AE"
+  ],
+  "clavulanic acid": [],
+  "amlodipine": [
+    "C09XA",
+    "C09BB",
+    "C09XA",
+    "C08CA",
+    "C08CA",
+    "C09BB",
+    "C10BX",
+    "C09DB",
+    "C09DX",
+    "C09DB"
+  ],
+  "tadalafil": [
+    "G04CB",
+    "C02KX",
+    "G04BE"
+  ],
+  "rosuvastatin": [
+    "C10BA",
+    "C10AA"
+  ],
+  "atorvastatin": [
+    "C10BA",
+    "C10BX",
+    "C10AA"
+  ],
+  "valsartan": [
+    "C09DX",
+    "C09DX",
+    "C09CA",
+    "C09DB",
+    "C09DX",
+    "C09DX"
+  ],
+  "metronidazole": [
+    "A02BD",
+    "P01AB",
+    "J01RA",
+    "A01AB",
+    "D06BX",
+    "G01AF",
+    "J01XD",
+    "P01AB"
+  ],
+  "etodolac": [
+    "M01AB"
+  ],
+  "bisoprolol": [
+    "C07AB"
+  ],
+  "metformin": [
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BA",
+    "A10BD",
+    "A10BD"
+  ],
+  "clotrimazole": [
+    "A01AB",
+    "D01AC",
+    "G01AF"
+  ],
+  "pseudoephedrine": [
+    "R01BA"
+  ],
+  "clindamycin": [
+    "D10AF",
+    "G01AA",
+    "J01FF"
+  ],
+  "ciprofloxacin": [
+    "J01MA",
+    "S01AE",
+    "S02AA",
+    "S03AA"
+  ],
+  "esomeprazole": [
+    "A02BC",
+    "M01AE"
+  ],
+  "sitagliptin": [
+    "A10BH",
+    "A10BD",
+    "A10BH",
+    "A10BD"
+  ],
+  "enoxaparin": [
+    "B01AB"
+  ],
+  "enalapril": [
+    "C09AA"
+  ],
+  "gabapentin": [
+    "N02BF"
+  ],
+  "olanzapine": [
+    "N05AH",
+    "N05AH"
+  ],
+  "omeprazole": [
+    "A02BD",
+    "A02BC"
+  ],
+  "fluconazole": [
+    "D01AC",
+    "J02AC"
+  ],
+  "erythropoietin": [],
+  "triprolidine": [
+    "R06AX"
+  ],
+  "acetylsalicylic acid": [
+    "A01AD",
+    "B01AC",
+    "N02BA",
+    "N02AJ"
+  ],
+  "irinotecan": [
+    "L01CE"
+  ],
+  "glimepiride": [
+    "A10BB",
+    "A10BD",
+    "A10BD"
+  ],
+  "tramadol": [
+    "N02AX",
+    "N02AJ",
+    "N02AJ"
+  ],
+  "diclofenac sod": [],
+  "dapagliflozin": [
+    "A10BD",
+    "A10BK",
+    "A10BD",
+    "A10BD"
+  ],
+  "fexofenadine": [
+    "R06AX"
+  ],
+  "apixaban": [
+    "B01AF"
+  ],
+  "isotretinoin": [
+    "D10AD",
+    "D10BA"
+  ],
+  "fluticasone": [
+    "R03AK",
+    "D07AC",
+    "R01AD",
+    "R03BA",
+    "R01AD",
+    "R03BA"
+  ],
+  "mesalamine": [
+    "A07EC"
+  ],
+  "sildenafil": [
+    "G04BE"
+  ],
+  "acyclovir": [
+    "D06BB",
+    "J05AB",
+    "S01AD"
+  ],
+  "risperidone": [
+    "N05AX"
+  ],
+  "prednisolone": [
+    "A01AC",
+    "A07EA",
+    "C05AA",
+    "D07AA",
+    "D07XA",
+    "H02AB",
+    "R01AD",
+    "S01BA",
+    "S01CB",
+    "S02BA",
+    "S03BA"
+  ],
+  "gentamicin": [
+    "D06AX",
+    "J01GB",
+    "S01AA",
+    "S02AA",
+    "S03AA"
+  ],
+  "neomycin": [
+    "A01AB",
+    "A07AA",
+    "B05CA",
+    "D06AX",
+    "J01GB",
+    "R02AB",
+    "S01AA",
+    "S02AA",
+    "S03AA"
+  ],
+  "piroxicam": [
+    "M01AC",
+    "M02AA",
+    "S01BC"
+  ],
+  "loratadine": [
+    "R06AX"
+  ],
+  "hydrochlorothiazide": [
+    "C09XA",
+    "C03AA",
+    "C09XA",
+    "C09DX"
+  ],
+  "metoclopramide": [
+    "A03FA"
+  ],
+  "escitalopram": [
+    "N06AB"
+  ],
+  "ondansetron": [
+    "A04AA"
+  ],
+  "dextrose": [
+    "B05CX",
+    "V04CA",
+    "V06DC"
+  ],
+  "levetiracetam": [
+    "N03AX"
+  ],
+  "ethinyl estradiol": [
+    "G03AA",
+    "G03AB",
+    "G03AA",
+    "G03AB",
+    "G03AA",
+    "G03AB",
+    "G03AA",
+    "G03AA",
+    "G03AB",
+    "G03CA",
+    "L02AA",
+    "G03AA",
+    "G03AB",
+    "G03AA",
+    "G03AB",
+    "G03AA"
+  ],
+  "lenalidomide": [
+    "L04AX"
+  ],
+  "selexipag": [
+    "B01AC"
+  ],
+  "chlorpheniramine": [
+    "R06AB"
+  ],
+  "timolol": [
+    "C07AA",
+    "S01ED"
+  ],
+  "trastuzumab": [
+    "L01FD",
+    "L01FD",
+    "L01FD"
+  ],
+  "xylometazoline": [
+    "R01AA",
+    "R01AB",
+    "S01GA"
+  ],
+  "hydrocortisone": [
+    "D07AB",
+    "D07AB",
+    "D07AC",
+    "A01AC",
+    "A07EA",
+    "C05AA",
+    "D07AA",
+    "D07XA",
+    "H02AB",
+    "S01BA",
+    "S01CB",
+    "S02BA"
+  ],
+  "imatinib": [
+    "L01EA"
+  ],
+  "isosorbide mononitrate": [
+    "C01DA"
+  ],
+  "pantoprazole": [
+    "A02BC"
+  ],
+  "methylprednisolone": [
+    "D07AC",
+    "D07AA",
+    "D10AA",
+    "H02AB"
+  ],
+  "miconazole": [
+    "A01AB",
+    "A07AC",
+    "D01AC",
+    "G01AF",
+    "J02AB",
+    "S02AA"
+  ],
+  "alprazolam": [
+    "N05BA"
+  ],
+  "glucose": [
+    "B05CX",
+    "V04CA",
+    "V06DC"
+  ],
+  "cefuroxime": [
+    "J01DC",
+    "S01AA"
+  ],
+  "chloramphenicol": [
+    "D06AX",
+    "D10AF",
+    "G01AA",
+    "J01BA",
+    "S01AA",
+    "S02AA",
+    "S03AA"
+  ],
+  "famotidine": [
+    "A02BA"
+  ],
+  "entecavir": [
+    "J05AF"
+  ],
+  "moxifloxacin": [
+    "J01MA",
+    "S01AE"
+  ],
+  "rituximab": [
+    "L01FA"
+  ],
+  "adalimumab": [
+    "L04AB"
+  ],
+  "tacrolimus": [
+    "D11AH",
+    "L04AD"
+  ],
+  "terbinafine": [
+    "D01AE",
+    "D01BA"
+  ],
+  "clarithromycin": [
+    "J01FA"
+  ],
+  "human albumin": [],
+  "interferon beta a": [],
+  "rivaroxaban": [
+    "B01AF"
+  ],
+  "cetirizine": [
+    "R06AE",
+    "S01GX"
+  ],
+  "folic acid": [
+    "B03AD",
+    "B03AD",
+    "B03BB",
+    "V04CX"
+  ],
+  "furosemide": [
+    "C03CB",
+    "C03CA"
+  ],
+  "simethicone": [],
+  "carbonate": [],
+  "promethazine": [
+    "D04AA",
+    "R06AD"
+  ],
+  "cefdinir": [
+    "J01DD"
+  ],
+  "iohexol": [
+    "V08AB"
+  ],
+  "cefuroxime axetil": [
+    "J01DC",
+    "S01AA"
+  ],
+  "povidone iodine": [
+    "D08AG",
+    "D09AA",
+    "D11AC",
+    "G01AX",
+    "R02AA",
+    "S01AX"
+  ],
+  "pemetrexed": [
+    "L01BA"
+  ],
+  "naproxen": [
+    "M01AE",
+    "M01AE",
+    "G02CC",
+    "M01AE",
+    "M02AA",
+    "N02CC",
+    "M01AE"
+  ],
+  "everolimus": [
+    "L01EG",
+    "L04AH"
+  ],
+  "lamotrigine": [
+    "N03AX"
+  ],
+  "triamcinolone": [
+    "A01AC",
+    "C05AA",
+    "D07AB",
+    "D07XB",
+    "H02AB",
+    "R01AD",
+    "R03BA",
+    "S01BA"
+  ],
+  "meropenem": [
+    "J01DH",
+    "J01DH"
+  ],
+  "atenolol": [
+    "C07AB",
+    "C07FB"
+  ],
+  "mebendazole": [
+    "P02CA"
+  ],
+  "cholecalciferol": [
+    "A11CC"
+  ],
+  "palbociclib": [
+    "L01EF"
+  ],
+  "sertraline": [
+    "N06AB"
+  ],
+  "formoterol": [
+    "R03AK",
+    "R03AC",
+    "R03CC",
+    "R03AK"
+  ],
+  "guaifenesin": [
+    "R05CA"
+  ],
+  "topiramate": [
+    "A08AA",
+    "N03AX"
+  ],
+  "desmopressin": [
+    "H01BA"
+  ],
+  "dasatinib": [
+    "L01EA"
+  ],
+  "clopidogrel": [
+    "B01AC"
+  ],
+  "allopurinol": [
+    "M04AA"
+  ],
+  "tretinoin": [
+    "D10AD",
+    "L01XF"
+  ],
+  "cephalexin": [
+    "J01DB"
+  ],
+  "silver sulfadiazine": [
+    "D06BA"
+  ],
+  "midazolam": [
+    "N05CD"
+  ],
+  "ferrous": [],
+  "metamizole": [
+    "N02BB"
+  ],
+  "spironolactone": [
+    "C03DA"
+  ],
+  "povidone-lodine": [],
+  "deferasirox": [
+    "V03AC"
+  ],
+  "docetaxel": [
+    "L01CD"
+  ],
+  "diazepam": [
+    "N05BA"
+  ],
+  "losartan": [
+    "C09CA"
+  ],
+  "ezetimibe": [
+    "C10BA",
+    "C10BA",
+    "C10BA",
+    "C10AX",
+    "C10BA"
+  ],
+  "factor viii": [
+    "B02BD",
+    "B02BD"
+  ],
+  "chlorhexidine": [
+    "A01AB",
+    "B05CA",
+    "D08AC",
+    "D09AA",
+    "R02AA",
+    "S01AX",
+    "S02AA",
+    "S03AA"
+  ],
+  "carbamazepine": [
+    "N03AF"
+  ],
+  "bisacodyl": [
+    "A06AB",
+    "A06AG"
+  ],
+  "ofloxacin": [
+    "J01MA",
+    "S01AE",
+    "S02AA"
+  ],
+  "bicalutamide": [
+    "L02BB"
+  ],
+  "minoxidil": [
+    "C02DC",
+    "D11AX"
+  ],
+  "progesterone": [
+    "G03DA"
+  ],
+  "levothyroxine": [
+    "H03AA"
+  ],
+  "minocycline": [
+    "A01AB",
+    "D10AF",
+    "J01AA"
+  ],
+  "dextromethorphan hbr": [
+    "N06AX",
+    "R05DA"
+  ],
+  "heparin": [
+    "B01AB",
+    "C05BA",
+    "S01XA"
+  ],
+  "desloratadine": [
+    "R06AX"
+  ],
+  "clobetasol": [
+    "D07AD",
+    "S01BA"
+  ],
+  "hydroxide": [],
+  "sumatriptan": [
+    "N02CC",
+    "N02CC"
+  ],
+  "phenylephrine": [
+    "S01FB",
+    "C01CA",
+    "C05AX",
+    "R01AA",
+    "R01AB",
+    "R01BA",
+    "S01FB",
+    "S01GA"
+  ],
+  "cyclobenzaprine": [
+    "M03BX"
+  ],
+  "nystatin": [
+    "J01RA",
+    "A07AA",
+    "D01AA",
+    "G01AA"
+  ],
+  "cyclosporine": [
+    "L04AD",
+    "S01XA"
+  ],
+  "iopromide": [
+    "V08AB"
+  ],
+  "meloxicam": [
+    "N01BB",
+    "M01AC"
+  ],
+  "etanercept": [
+    "L04AB"
+  ],
+  "latanoprost": [
+    "S01EE",
+    "S01EE"
+  ],
+  "voriconazole": [
+    "J02AC"
+  ],
+  "infliximab": [
+    "L04AB"
+  ],
+  "ziprasidone": [
+    "N05AE"
+  ],
+  "celecoxib": [
+    "L01XX",
+    "M01AH",
+    "C08CA",
+    "N02AJ"
+  ],
+  "ambroxol": [
+    "R02AD",
+    "R05CB",
+    "R03CC"
+  ],
+  "indomethacin": [
+    "C01EB",
+    "M01AB",
+    "M02AA",
+    "S01BC"
+  ],
+  "temozolomide": [
+    "L01AX"
+  ],
+  "vitamin d": [],
+  "emicizumab": [
+    "B02BX"
+  ],
+  "ceftriaxone": [
+    "J01DD"
+  ],
+  "empagliflozin": [
+    "A10BK",
+    "A10BD",
+    "A10BD",
+    "A10BD"
+  ],
+  "amikacin": [
+    "D06AX",
+    "J01GB",
+    "S01AA"
+  ],
+  "mometasone furoate": [
+    "R03AK",
+    "D07AC",
+    "D07XC",
+    "R01AD",
+    "R03BA"
+  ],
+  "erlotinib": [
+    "L01EB"
+  ],
+  "montelukast": [
+    "R03DC"
+  ],
+  "theophylline": [
+    "R03DA"
+  ],
+  "ketorolac tromethamine": [
+    "M01AB",
+    "S01BC"
+  ],
+  "sulfamethoxazole": [
+    "J01EC",
+    "J01EE"
+  ],
+  "mupirocin": [
+    "D06AX",
+    "R01AX"
+  ],
+  "zoledronic acid": [
+    "M05BA"
+  ],
+  "sunitinib": [
+    "L01EX"
+  ],
+  "sacubitril": [
+    "C09DX"
+  ],
+  "ruxolitinib": [
+    "D11AH",
+    "L01EJ"
+  ],
+  "triptorelin": [
+    "L02AE"
+  ],
+  "trimethoprim": [
+    "J01EE",
+    "J01EA",
+    "J01EE",
+    "J01EE",
+    "J01EE",
+    "J01EE"
+  ],
+  "oxymetazoline": [
+    "D11AX",
+    "R01AA",
+    "R01AB",
+    "S01GA"
+  ],
+  "follitropin alfa": [
+    "G03GA"
+  ],
+  "cabergoline": [
+    "G02CB",
+    "N04BC"
+  ],
+  "dorzolamide": [
+    "S01EC"
+  ],
+  "caffeine": [
+    "V04CG",
+    "D11AX",
+    "N06BC"
+  ],
+  "paclitaxel": [
+    "L01CD",
+    "L01CD"
+  ],
+  "lurasidone": [
+    "N05AE"
+  ],
+  "budesonide": [
+    "A07EA",
+    "D07AC",
+    "R01AD",
+    "R03BA",
+    "R03AK"
+  ],
+  "lorazepam": [
+    "N05BA"
+  ],
+  "propranolol": [
+    "C07AA"
+  ],
+  "bicarbonate": [],
+  "fentanyl": [
+    "N01AH",
+    "N02AB"
+  ],
+  "bortezomib": [
+    "L01XG"
+  ],
+  "carvedilol": [
+    "C07AG"
+  ],
+  "venetoclax": [
+    "L01XX"
+  ],
+  "menthol": [],
+  "bevacizumab": [
+    "L01FG",
+    "S01LA"
+  ],
+  "cefotaxime": [
+    "J01DD"
+  ],
+  "cefixime": [
+    "J01DD"
+  ],
+  "gestodene": [
+    "G03AA",
+    "G03AB"
+  ],
+  "abiraterone": [
+    "L02BX",
+    "L01XK"
+  ],
+  "saxagliptin": [
+    "A10BD",
+    "A10BD",
+    "A10BD",
+    "A10BH"
+  ],
+  "dalteparin": [
+    "B01AB"
+  ],
+  "ramipril": [
+    "C09AA",
+    "C09BB"
+  ],
+  "cytarabine": [
+    "L01XY",
+    "L01BC"
+  ],
+  "doxycycline": [
+    "A01AB",
+    "J01AA"
+  ],
+  "fluoxetine": [
+    "N06AB"
+  ],
+  "finasteride": [
+    "D11AX",
+    "G04CB",
+    "G04CB"
+  ],
+  "erythromycin": [
+    "D10AF",
+    "J01FA",
+    "S01AA"
+  ],
+  "fluorouracil": [
+    "L01BC"
+  ],
+  "drospirenone": [
+    "G03AC",
+    "G03AA",
+    "G03AA"
+  ],
+  "salmeterol": [
+    "R03AK",
+    "R03AC"
+  ],
+  "amiodarone": [
+    "C01BD"
+  ],
+  "flurbiprofen": [
+    "M01AE",
+    "M02AA",
+    "R02AX",
+    "S01BC"
+  ],
+  "rizatriptan": [
+    "N02CC"
+  ],
+  "dapagliflozin propanediol": [
+    "A10BK"
+  ],
+  "dinoprostone": [
+    "G02AD"
+  ],
+  "somatropin": [
+    "H01AC"
+  ],
+  "fingolimod": [
+    "L04AE"
+  ],
+  "repaglinide": [
+    "A10BX",
+    "A10BD"
+  ],
+  "gemcitabine": [
+    "L01BC"
+  ],
+  "dextromethorphan": [
+    "N06AX",
+    "R05DA"
+  ],
+  "siponimod": [
+    "L04AE"
+  ],
+  "dextroamphetamine": [
+    "N06BA"
+  ],
+  "sacubitril - valsartan": [],
+  "tamsulosin": [
+    "G04CA",
+    "G04CA"
+  ],
+  "dexmedetomidine": [
+    "N05CM"
+  ],
+  "darbepoetin alfa": [
+    "B03XA"
+  ],
+  "glycerol": [
+    "A06AG",
+    "A06AX"
+  ],
+  "fulvestrant": [
+    "L02BA"
+  ],
+  "distilled water": [],
+  "etoposide": [
+    "L01CB"
+  ],
+  "sorafenib": [
+    "L01EX"
+  ],
+  "aspirin": [
+    "A01AD",
+    "B01AC",
+    "N02BA",
+    "N02AJ"
+  ],
+  "cladribine": [
+    "L01BB",
+    "L04AA"
+  ],
+  "amoxicillin clavulanate": [],
+  "tobramycin": [
+    "J01GB",
+    "S01AA"
+  ],
+  "valsartan amlodipine": [],
+  "warfarin": [
+    "B01AA"
+  ],
+  "valsartan hydrochlorothiazide": [],
+  "tolterodine": [
+    "G04BD"
+  ],
+  "ketamine": [
+    "N01AX"
+  ],
+  "omalizumab": [
+    "R03DX"
+  ],
+  "bupivacaine": [
+    "N01BB",
+    "N01BB"
+  ],
+  "cefazolin": [
+    "J01DB"
+  ],
+  "methotrexate": [
+    "L01BA",
+    "L04AX"
+  ],
+  "ketotifen": [
+    "R06AX",
+    "S01GX"
+  ],
+  "labetalol": [
+    "C07AG"
+  ],
+  "metformin sitagliptin": [],
+  "pazopanib": [
+    "L01EX"
+  ],
+  "oxaliplatin": [
+    "L01XA"
+  ],
+  "trihexyphenidyl": [
+    "N04AA"
+  ],
+  "vardenafil": [
+    "G04BE"
+  ],
+  "ceftazidime": [
+    "J01DD"
+  ],
+  "cefpodoxime proxetil": [
+    "J01DD"
+  ],
+  "tocilizumab": [
+    "L04AC"
+  ],
+  "benzocaine": [
+    "C05AD",
+    "D04AB",
+    "N01BA",
+    "R02AD"
+  ],
+  "mycophenolate": [],
+  "candesartan": [
+    "C09CA"
+  ],
+  "atogepant": [
+    "N02CD"
+  ],
+  "codeine": [
+    "N02AJ",
+    "R05DA",
+    "N02AJ",
+    "N02AJ"
+  ],
+  "valproate": [
+    "N03AG"
+  ],
+  "atracurium": [
+    "M03AC"
+  ],
+  "norethisterone": [
+    "G03AA",
+    "G03AB",
+    "G03AC",
+    "G03DC"
+  ],
+  "capecitabine": [
+    "L01BC"
+  ],
+  "captopril": [
+    "C09AA"
+  ],
+  "ipratropium": [
+    "R01AX",
+    "R03BB"
+  ],
+  "papaverine": [
+    "A03AD",
+    "G04BE"
+  ],
+  "estradiol": [
+    "G03CA",
+    "G03AA",
+    "G03AB"
+  ],
+  "pertuzumab": [
+    "L01FD"
+  ],
+  "aluminium hydroxide": [
+    "A02AD",
+    "A02AB",
+    "A02AB"
+  ],
+  "valproic acid": [
+    "N03AG"
+  ],
+  "thymol": [],
+  "iron": [],
+  "medroxyprogesterone": [
+    "G03AA",
+    "G03AC",
+    "G03DA",
+    "L02AB"
+  ],
+  "palivizumab": [
+    "J06BD"
+  ],
+  "pancreatin": [],
+  "oxytocin": [
+    "H01BB"
+  ],
+  "folinate": [
+    "V03AF"
+  ],
+  "oxytetracycline": [
+    "A01AB",
+    "D06AA",
+    "G01AA",
+    "J01AA",
+    "S01AA"
+  ],
+  "osimertinib": [
+    "L01EB"
+  ],
+  "memantine": [
+    "N06DA",
+    "N06DX"
+  ],
+  "nintedanib": [
+    "L01EX"
+  ],
+  "norepinephrine": [
+    "C01CA"
+  ],
+  "naphazoline": [
+    "R01AA",
+    "R01AB",
+    "S01GA"
+  ],
+  "naloxone": [
+    "N02AX",
+    "N02AA",
+    "N02AD",
+    "A06AH",
+    "V03AB"
+  ],
+  "nalidixic acid": [
+    "J01MB"
+  ],
+  "mycophenolic acid": [
+    "L04AA"
+  ],
+  "mosunetuzumab": [
+    "L01FX"
+  ],
+  "factor": [],
+  "miglustat": [
+    "A16AX"
+  ],
+  "olaparib": [
+    "L01XK"
+  ],
+  "methylphenidate": [
+    "N06BA"
+  ],
+  "orphenadrine": [
+    "N04AB",
+    "M03BC"
+  ],
+  "fesoterodine": [
+    "G04BD"
+  ],
+  "filgrastim": [
+    "L03AA"
+  ],
+  "finerenone": [
+    "C03DA"
+  ],
+  "fosfomycin": [
+    "J01XX",
+    "S02AA"
+  ],
+  "aflibercept": [
+    "L01XX",
+    "S01LA"
+  ],
+  "penciclovir": [
+    "D06BB",
+    "J05AB"
+  ],
+  "ketoconazole": [
+    "H02CA",
+    "D01AC",
+    "G01AF",
+    "H02CA",
+    "J02AB"
+  ],
+  "griseofulvin": [
+    "D01AA",
+    "D01BA"
+  ],
+  "pravastatin": [
+    "C10AA"
+  ],
+  "penicillin v": [
+    "J01CE",
+    "J01CE"
+  ],
+  "itraconazole": [
+    "J02AC"
+  ],
+  "alprostadil": [
+    "C01EA",
+    "G04BE"
+  ],
+  "phenazopyridine": [
+    "G04BX"
+  ],
+  "polymyxin b": [
+    "A07AA",
+    "J01XB",
+    "S01AA",
+    "S02AA",
+    "S03AA"
+  ],
+  "polymixin b": [],
+  "iodixanol": [
+    "V08AB"
+  ],
+  "insulin glargine": [
+    "A10AE",
+    "A10AE"
+  ],
+  "phenobarbital": [
+    "N03AA"
+  ],
+  "hydrocortisone lidocaine zinc oxide": [],
+  "hydroxocobalamin": [
+    "B03BA",
+    "V03AB"
+  ],
+  "phenytoin": [
+    "N03AB"
+  ],
+  "ketoprofen": [
+    "M01AE",
+    "M02AA"
+  ],
+  "glycopyrronium": [
+    "D11AA"
+  ],
+  "lorlatinib": [
+    "L01ED"
+  ],
+  "prilocaine": [
+    "N01BB"
+  ],
+  "loratidine": [],
+  "lipids": [],
+  "linagliptin": [
+    "A10BH",
+    "A10BD",
+    "A10BD",
+    "A10BD"
+  ],
+  "propofol": [
+    "N01AX"
+  ],
+  "ibrutinib": [
+    "L01EL"
+  ],
+  "levonorgestrel": [
+    "G03AA",
+    "G03AB",
+    "G03AC",
+    "G03AD"
+  ],
+  "gemifloxacin": [
+    "J01MA"
+  ],
+  "patiromer": [],
+  "alpelisib": [
+    "L01EM"
+  ],
+  "prednisone": [
+    "A07EA",
+    "H02AB"
+  ],
+  "letrozole": [
+    "L02BG"
+  ],
+  "glycerin": [
+    "A06AG",
+    "A06AX"
+  ],
+  "leflunomide": [
+    "L04AK"
+  ],
+  "lamivudine": [
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AR",
+    "J05AF",
+    "J05AR",
+    "J05AR",
+    "J05AR"
+  ],
+  "lactulose": [
+    "A06AD"
+  ],
+  "glycerin supp": [],
+  "propafenone": [
+    "C01BC"
+  ],
+  "ephedrine": [
+    "C01CA",
+    "R01AA",
+    "R01AB",
+    "R03CA",
+    "S01FB"
+  ],
+  "nifedipine": [
+    "C07FB",
+    "C08CA"
+  ],
+  "sulpiride": [
+    "N05AL"
+  ],
+  "colchicine": [
+    "M04AC",
+    "M04AC"
+  ],
+  "botulinum toxin type a": [],
+  "crisaborole": [
+    "D11AH"
+  ],
+  "crizotinib": [
+    "L01ED"
+  ],
+  "cyanocobalamin": [
+    "B03BA"
+  ],
+  "bosentan": [
+    "C02KX"
+  ],
+  "cyproheptadine": [
+    "R06AX"
+  ],
+  "dabigatran etexilate": [
+    "B01AE"
+  ],
+  "bismuth subsalicylate": [],
+  "bismuth": [],
+  "daratumumab": [
+    "L01FC"
+  ],
+  "sulfasalazine": [
+    "A07EC"
+  ],
+  "bimatoprost": [
+    "S01EE"
+  ],
+  "sulfamethoxazole trimethoprim": [],
+  "dexchlorpheniramine": [
+    "R06AB"
+  ],
+  "dexlansoprazole": [
+    "A02BC"
+  ],
+  "anastrozole": [
+    "L02BG"
+  ],
+  "asciminib": [
+    "L01EA"
+  ],
+  "benzyl peroxide": [],
+  "bromhexine": [
+    "R05CB"
+  ],
+  "budesonide formoterol": [],
+  "cefuroxim": [
+    "J01DC",
+    "S01AA"
+  ],
+  "cetrimide": [
+    "D08AJ",
+    "D11AC"
+  ],
+  "cefditoren": [
+    "J01DD"
+  ],
+  "cetuximab": [
+    "L01FE"
+  ],
+  "trazodone": [
+    "N06AX"
+  ],
+  "trastuzumab emtansine": [
+    "L01FD",
+    "L01FD"
+  ],
+  "cefadroxil": [
+    "J01DB"
+  ],
+  "acetylcysteine": [
+    "R05CB",
+    "S01XA",
+    "V03AB"
+  ],
+  "tranexamic acid": [
+    "B02AA"
+  ],
+  "carboplatin": [
+    "L01XA"
+  ],
+  "topotecan": [
+    "L01CE"
+  ],
+  "upadacitinib": [
+    "L04AF"
+  ],
+  "tiotropium": [
+    "R03BB"
+  ],
+  "citalopram": [
+    "N06AB"
+  ],
+  "ropinirole": [
+    "N04BC"
+  ],
+  "ursodeoxycholic acid": [
+    "A05AA"
+  ],
+  "clonazepam": [
+    "N03AE"
+  ],
+  "clonidine": [
+    "C02AC",
+    "N02CX",
+    "S01EA"
+  ],
+  "candesartan cilexetil": [
+    "C09CA"
+  ],
+  "tetrahydrozoline": [
+    "R01AA",
+    "R01AB",
+    "S01GA"
+  ],
+  "ustekinumab": [
+    "L04AC"
+  ],
+  "valacyclovir": [
+    "J05AB"
+  ],
+  "calcitriol": [
+    "A11CC",
+    "D05AX"
+  ],
+  "buprenorphine": [
+    "N02AE",
+    "N07BC"
+  ],
+  "vancomycin": [
+    "A07AA",
+    "J01XA",
+    "S01AA"
+  ],
+  "simvastatin": [
+    "A10BH",
+    "C10BA",
+    "C10AA",
+    "C10BA"
+  ],
+  "desogestrel": [
+    "G03AC",
+    "G03AA",
+    "G03AB"
+  ],
+  "dimethyl": [],
+  "axitinib": [
+    "L01EK"
+  ],
+  "benzoyl peroxide": [
+    "D10AE"
+  ],
+  "duloxetine": [
+    "N06AX"
+  ],
+  "durvalumab": [
+    "L01FF"
+  ],
+  "beclomethasone dipropionate": [
+    "A07EA",
+    "D07AC",
+    "R01AD",
+    "R03BA"
+  ],
+  "baclofen": [
+    "M03BX"
+  ],
+  "zinc": [],
+  "ascorbate": [],
+  "azathioprine": [
+    "L04AX"
+  ],
+  "azacitidine": [
+    "L01BC"
+  ],
+  "salbutamol": [
+    "R03AC",
+    "R03CC"
+  ],
+  "doxorubicin": [
+    "L01DB"
+  ],
+  "eletriptan hydrobromide": [
+    "N02CC"
+  ],
+  "eltrombopag": [
+    "B02BX"
+  ],
+  "atropine": [
+    "A03BA",
+    "S01FA",
+    "V03AB"
+  ],
+  "ampicillin": [
+    "J01CR",
+    "J01CA",
+    "S01AA"
+  ],
+  "entrectinib": [
+    "L01EX"
+  ],
+  "epinastine": [
+    "R06AX",
+    "S01GX"
+  ],
+  "atezolizumab": [
+    "L01FF"
+  ],
+  "eplerenone": [
+    "C03DA"
+  ],
+  "erenumab": [
+    "N02CD"
+  ],
+  "ertugliflozin": [
+    "A10BK",
+    "A10BD",
+    "A10BD"
+  ],
+  "adapalene": [
+    "D10AD"
+  ],
+  "doxylamine": [
+    "R06AA"
+  ],
+  "donepezil": [
+    "N06DA",
+    "N06DA"
+  ],
+  "doxazosin": [
+    "C02CA"
+  ],
+  "sevoflurane": [
+    "N01AB"
+  ],
+  "sevelamer carbonate": [
+    "V03AE"
+  ],
+  "diphenhydramine": [
+    "M01AE",
+    "D04AA",
+    "R06AA"
+  ],
+  "von willebrand factor": [
+    "B02BD"
+  ],
+  "oseltamivir": [
+    "J05AH"
+  ],
+  "urea": [
+    "B05BC",
+    "D02AE",
+    "V04CX"
+  ],
+  "papaverin": [],
+  "ofatumumab": [
+    "L01FA",
+    "L04AG"
+  ],
+  "norgestrel": [],
+  "nitrofurantoin": [
+    "J01XE"
+  ],
+  "olopatadine": [
+    "R01AC",
+    "S01GX"
+  ],
+  "olodaterol": [
+    "R03AC"
+  ],
+  "tropicamide": [
+    "S01FA"
+  ],
+  "nilotinib": [
+    "L01EA"
+  ],
+  "ubidecarenone": [
+    "C01EB"
+  ],
+  "ulipristal": [
+    "G03AD",
+    "G03XB"
+  ],
+  "vitamin a": [
+    "A11CA",
+    "D10AD",
+    "R01AX",
+    "S01XA"
+  ],
+  "olive oil": [],
+  "oxybutynin": [
+    "G04BD"
+  ],
+  "octreotide": [
+    "H01CB"
+  ],
+  "velaglucerase alfa": [
+    "A16AB"
+  ],
+  "water for": [],
+  "venlafaxine": [
+    "N06AX"
+  ],
+  "vinorelbin": [
+    "L01CA"
+  ],
+  "water": [],
+  "oxide": [],
+  "verapamil": [
+    "C08DA",
+    "C09BB"
+  ],
+  "vincristin": [
+    "L01CA"
+  ],
+  "vedolizumab": [
+    "L04AG"
+  ],
+  "vecuronium": [
+    "M03AC"
+  ],
+  "oxycodone": [
+    "N02AA",
+    "N02AA",
+    "N02AJ",
+    "N02AA"
+  ],
+  "vinblastine": [
+    "L01CA"
+  ],
+  "zinc oxide": [],
+  "vincristine": [
+    "L01CA"
+  ],
+  "valganciclovir": [
+    "J05AB"
+  ],
+  "paliperidone": [
+    "N05AX"
+  ],
+  "alectinib": [
+    "L01ED"
+  ],
+  "obinutuzumab": [
+    "L01FA"
+  ],
+  "albendazol": [
+    "P02CA"
+  ],
+  "ocrelizumab": [
+    "L04AG"
+  ],
+  "varicella virus vaccine": [],
+  "alendronate": [
+    "M05BA"
+  ],
+  "vasopressin": [],
+  "rocuronium": [
+    "M03AC"
+  ],
+  "acetazolamid": [
+    "S01EC"
+  ],
+  "poractant": [],
+  "protamine": [
+    "V03AB"
+  ],
+  "propylene glycol": [],
+  "sirolimus": [
+    "L01EG",
+    "L04AH",
+    "S01XA"
+  ],
+  "acitretin": [
+    "D05BB"
+  ],
+  "progesteron": [
+    "G03DA"
+  ],
+  "primidone": [
+    "N03AA"
+  ],
+  "adrenalin": [
+    "A01AD",
+    "B02BC",
+    "C01CA",
+    "R01AA",
+    "R03AA",
+    "S01EA"
+  ],
+  "st. john's wort": [
+    "N06AX"
+  ],
+  "sulfacetamide": [
+    "D10AF",
+    "S01AB"
+  ],
+  "prasugrel": [
+    "B01AC"
+  ],
+  "sulindac": [
+    "M01AB"
+  ],
+  "sennosides a": [],
+  "risdiplam": [
+    "M09AX"
+  ],
+  "risankizumab": [
+    "L04AC"
+  ],
+  "nifedipin": [],
+  "ribociclib": [
+    "L01EF"
+  ],
+  "remifentanil": [
+    "N01AH"
+  ],
+  "regorafenib": [
+    "L01EX"
+  ],
+  "satralizumab": [
+    "L04AC"
+  ],
+  "secukinumab": [
+    "L04AC"
+  ],
+  "ranibizumab": [
+    "S01LA"
+  ],
+  "raloxifene": [
+    "G03XC"
+  ],
+  "quetiapine": [
+    "N05AH"
+  ],
+  "pyroxidine": [],
+  "pyrilamine": [
+    "D04AA",
+    "R06AC"
+  ],
+  "selegiline": [
+    "N04BD"
+  ],
+  "selenium sulfide": [
+    "D01AE"
+  ],
+  "pyridostigmine": [
+    "N07AA"
+  ],
+  "polyvinyl alcohol": [],
+  "triglycerides": [],
+  "pheniramine": [
+    "D04AA",
+    "R06AB"
+  ],
+  "ticagrelor": [
+    "B01AC"
+  ],
+  "tinidazole": [
+    "G01AF",
+    "J01XD",
+    "P01AB"
+  ],
+  "tirofiban": [
+    "B01AC"
+  ],
+  "tofacitinib": [
+    "L04AF"
+  ],
+  "permethrin": [
+    "P03AC"
+  ],
+  "tolanaftate": [],
+  "acetylsalicylic": [],
+  "trastuzumab deruxtecan": [
+    "L01FD",
+    "L01FD"
+  ],
+  "travoprost": [
+    "S01EE"
+  ],
+  "pembrolizumab": [
+    "L01FF"
+  ],
+  "triamcinolone acetonide": [
+    "A01AC",
+    "C05AA",
+    "D07AB",
+    "D07XB",
+    "H02AB",
+    "R01AD",
+    "R03BA",
+    "S01BA"
+  ],
+  "pectin": [
+    "A07BC"
+  ],
+  "polystyrene sulfonate": [
+    "V03AE"
+  ],
+  "polymyxin-b": [],
+  "taliglucerase alfa": [
+    "A16AB"
+  ],
+  "tamoxifen": [
+    "L02BA"
+  ],
+  "polyethylene glycol": [
+    "A06AD"
+  ],
+  "polatuzumab": [],
+  "piperacillin": [
+    "J01CA"
+  ],
+  "terlipressin": [
+    "H01BA"
+  ],
+  "picosulfate": [],
+  "tazobactam": [
+    "J01CG"
+  ],
+  "phenyltoloxamine": [],
+  "phenylphrine": [],
+  "phenylephrine hci": [],
+  "tenofovir": [],
+  "thiamine": [
+    "A11DA"
+  ],
+  "and glucose": [],
+  "clozapine": [
+    "N05AH"
+  ],
+  "colistimethate": [
+    "A07AA",
+    "J01XB"
+  ],
+  "and minerals": [],
+  "daptomycin": [
+    "J01XX"
+  ],
+  "darolutamide": [
+    "L02BB"
+  ],
+  "deferoxamine": [
+    "V03AC"
+  ],
+  "cloxacillin": [
+    "J01CF"
+  ],
+  "clove oil": [],
+  "and pseudoephedrine": [],
+  "ciprofloxacin fluocinolone acetonide (": [],
+  "citric acid": [
+    "A09AB"
+  ],
+  "antazoline": [
+    "R01AC",
+    "R06AX"
+  ],
+  "clidinium br": [],
+  "clomiphene": [
+    "G03GB"
+  ],
+  "clotrimazol": [
+    "A01AB",
+    "D01AC",
+    "G01AF"
+  ],
+  "desloratidine": [],
+  "dexamethasone sod": [],
+  "dipyron": [],
+  "dobutamine": [
+    "C01CA"
+  ],
+  "domperidone": [
+    "A03FA"
+  ],
+  "dopamine": [
+    "C01CA"
+  ],
+  "dorzolamide timolol": [],
+  "doxylamine pyridoxine": [],
+  "dutasteride": [
+    "G04CA",
+    "G04CB"
+  ],
+  "dutasteride tamsulosin": [],
+  "diphenylhydramine": [],
+  "dicyclomine": [
+    "A03AA"
+  ],
+  "dimenhydrinate": [
+    "R06AA"
+  ],
+  "choriogonadotropin alfa": [
+    "G03GA",
+    "G03GA"
+  ],
+  "choline salicylate": [
+    "N02BA"
+  ],
+  "chlorpromazine": [
+    "N05AA"
+  ],
+  "aprepitant": [
+    "A04AD"
+  ],
+  "boric acid": [
+    "S02AA",
+    "S01AX"
+  ],
+  "botulinum a toxin": [],
+  "brentuximab vedotin": [
+    "L01FX"
+  ],
+  "brinzolamide": [
+    "S01EC"
+  ],
+  "bromfenac": [
+    "S01BC"
+  ],
+  "bupropion": [
+    "A08AA",
+    "N06AX",
+    "N06AX"
+  ],
+  "beclomethasone": [
+    "A07EA",
+    "D07AC",
+    "R01AD",
+    "R03BA"
+  ],
+  "ascorbic acid": [
+    "A11GA",
+    "G01AD",
+    "S01XA"
+  ],
+  "atropin": [
+    "A03BA",
+    "S01FA",
+    "V03AB"
+  ],
+  "avelumab": [
+    "L01FF"
+  ],
+  "azelastine": [
+    "R01AC",
+    "R06AX",
+    "S01GX"
+  ],
+  "basiliximab": [
+    "L04AC"
+  ],
+  "benzocain": [],
+  "benzyl alcohol": [
+    "P03AX"
+  ],
+  "cabazitaxel": [
+    "L01CD"
+  ],
+  "cetrorelix": [
+    "H01CC"
+  ],
+  "cetyl pyridinium": [],
+  "chlordiazepoxide": [
+    "N05BA"
+  ],
+  "ceftriaxone sod": [],
+  "chloroform": [
+    "N01AB"
+  ],
+  "chlorpheniramin": [],
+  "antipyrine": [
+    "N02BB",
+    "S02DA"
+  ],
+  "carb": [],
+  "calamine zinc oxide": [],
+  "calfactant": [],
+  "capecitabin": [
+    "L01BC"
+  ],
+  "carbidopa-levodopa": [
+    "N04BA"
+  ],
+  "ceftriaxon": [],
+  "carbo vegetab": [],
+  "cefazolin sod": [],
+  "cefpodoxime": [
+    "J01DD"
+  ],
+  "epoetin beta": [],
+  "nepafenac": [
+    "S01BC"
+  ],
+  "levomenthol": [],
+  "lidocain": [],
+  "linezolid": [
+    "J01XX"
+  ],
+  "liraglutide": [
+    "A10AE",
+    "A10BJ"
+  ],
+  "loperamide": [
+    "A07DA"
+  ],
+  "macitentan": [
+    "C02KX",
+    "C02KX"
+  ],
+  "levomefolate ca": [],
+  "levomefolate": [],
+  "kaolin": [
+    "A07BC"
+  ],
+  "insulin glulisine": [
+    "A10AB"
+  ],
+  "iron iii": [],
+  "ketoconazole g": [],
+  "lactic acid": [
+    "G01AD"
+  ],
+  "lansoprazole": [
+    "A02BC"
+  ],
+  "lapatinib ditosylate": [
+    "L01EH"
+  ],
+  "mannitol": [
+    "A06AD",
+    "B05BC",
+    "B05CX",
+    "R05CB",
+    "V04CX"
+  ],
+  "ertapenem": [
+    "J01DH"
+  ],
+  "misoprostol": [
+    "M01AE",
+    "A02BB",
+    "G02AD"
+  ],
+  "morphine": [
+    "N02AA"
+  ],
+  "mycophenolate mofetil": [],
+  "nabumetone": [
+    "M01AX"
+  ],
+  "naphazoline zinc": [],
+  "neomycin hydrocortisone": [],
+  "neostigmine methyl": [],
+  "mirtazapine": [
+    "N06AX"
+  ],
+  "minerals": [],
+  "methimazole": [
+    "H03BB"
+  ],
+  "medium chain": [],
+  "memantin": [],
+  "mercaptopurine": [
+    "L01BB"
+  ],
+  "metamizol": [
+    "N02BB"
+  ],
+  "alfuzosin": [
+    "G04CA"
+  ],
+  "methocarbamol": [
+    "M03BA"
+  ],
+  "methoxsalen": [
+    "D05AD",
+    "D05BA"
+  ],
+  "methyl": [],
+  "methyl dopa": [
+    "C02AB"
+  ],
+  "methyl salicylate": [],
+  "metoclopramid": [],
+  "metoprolol": [
+    "C07FB",
+    "C07AB"
+  ],
+  "indapamide": [
+    "C03BA"
+  ],
+  "amitriptyline": [
+    "N06AA"
+  ],
+  "fludarabin": [],
+  "flumethasone": [
+    "D07AB",
+    "D07XB"
+  ],
+  "fluocinonide": [
+    "C05AA",
+    "D07AC"
+  ],
+  "fluorometholone": [
+    "C05AA",
+    "D07AB",
+    "D07XB",
+    "D10AA",
+    "S01BA",
+    "S01CB"
+  ],
+  "fluphenazine": [
+    "N05AB"
+  ],
+  "fluticasone diskus": [],
+  "furazolidone": [
+    "G01AX"
+  ],
+  "fusidate": [
+    "D06AX",
+    "D09AA",
+    "J01XC",
+    "S01AA"
+  ],
+  "fish oil": [],
+  "filgrastim mu": [],
+  "amlodipine atorvastatin": [],
+  "erythromycin ethyl": [],
+  "estriol": [
+    "G03CA",
+    "G03CC"
+  ],
+  "amorolfine": [
+    "D01AE"
+  ],
+  "ammonium": [],
+  "exemestane": [
+    "L02BG"
+  ],
+  "faricimab": [
+    "S01LA"
+  ],
+  "ferric carboxymaltose": [],
+  "human fibrinogen": [
+    "B02BB"
+  ],
+  "hydroxyethylcellulose": [],
+  "aluminum hydroxide": [
+    "A02AD",
+    "A02AB",
+    "A02AB"
+  ],
+  "inclisiran": [
+    "C10AX"
+  ],
+  "ganirelix": [
+    "H01CC"
+  ],
+  "gatifloxacin": [
+    "J01MA",
+    "S01AE"
+  ],
+  "amiloride hydrochlorothiazide": [],
+  "amiloride": [
+    "C03DB"
+  ],
+  "glipizide": [
+    "A10BB"
+  ],
+  "glucagon": [
+    "H04AA"
+  ],
+  "goserelin": [
+    "L02AE"
+  ],
+  "homatropine methyl": [],
+  "haloperidol": [
+    "N05AD"
+  ],
+  "hepatitis a vaccine": [],
+  "hepatitis b vaccine": [],
+  "hepatitis vaccine": [],
+  "hexamine": [
+    "J01XX"
+  ]
+}
