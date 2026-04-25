@@ -10,6 +10,8 @@ requests==2.32.3
 requests-cache==1.2.1
 tqdm==4.67.1
 python-dotenv==1.0.1
+datasets==4.8.4
+accelerate==1.13.0
 pytest==8.3.4
 pytest-mock==3.14.0
 numpy==1.26.4
