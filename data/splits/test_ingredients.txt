@@ -1,0 +1,42 @@
+ammonium
+atezolizumab
+beclomethasone dipropionate
+bicarbonate
+botulinum a toxin
+cefazolin sod
+cefdinir
+ceftriaxone sod
+cetyl pyridinium
+ciprofloxacin
+distilled water
+doxycycline
+ephedrine
+esomeprazole
+ferrous
+filgrastim mu
+fluorouracil
+fluoxetine
+fusidate
+hepatitis a vaccine
+hepatitis vaccine
+ketoprofen
+linezolid
+lorazepam
+metformin sitagliptin
+minerals
+mometasone furoate
+nilotinib
+norethisterone
+phenylphrine
+polymixin b
+polymyxin-b
+prasugrel
+prednisolone
+pyroxidine
+regorafenib
+satralizumab
+simethicone
+trastuzumab
+trazodone
+triprolidine
+vincristin
