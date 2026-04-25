@@ -1,8 +1,15 @@
 """Train a sentence-transformer with InfoNCE + explicit hard negatives."""
 
 import logging
+import os
 import random
 from pathlib import Path
+
+# Disable third-party experiment trackers BEFORE importing transformers — the
+# Trainer auto-detects wandb/comet/mlflow and crashes when no key is set.
+os.environ.setdefault("WANDB_DISABLED", "true")
+os.environ.setdefault("TRANSFORMERS_NO_ADVISORY_WARNINGS", "1")
+os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
 
 import numpy as np
 import torch
