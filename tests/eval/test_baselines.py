@@ -19,3 +19,18 @@ def test_dense_retriever_caches_index(tiny_chunks):
     a = r.retrieve("pain", k=1)
     b = r.retrieve("pain", k=1)
     assert a == b
+
+
+def test_run_eval_on_tiny(tiny_chunks_file, tmp_path):
+    """Pipe-checking the harness wires together — no model accuracy assertion."""
+    import json
+    from src.eval import run_eval
+
+    chunks = []
+    with open(tiny_chunks_file) as fh:
+        for line in fh:
+            chunks.append(json.loads(line))
+    queries = [{"query": "diabetes glucose", "gold": ["metformin"]}]
+    r = run_eval.build_retriever("bm25", chunks)
+    out = run_eval.evaluate_retriever(r, queries, k_max=3)
+    assert out["recall@1"][0] == 1.0
