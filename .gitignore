@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.venv/
+venv/
+.DS_Store
+old-not-usefull-data/
+fetch_v2*.log
+drug_monographs_v2.csv
+*.ipynb_checkpoints/
+checkpoints/
+.idea/
+.vscode/
