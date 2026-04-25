@@ -1,6 +1,5 @@
 """Project-wide constants. Single source of truth for paths and hyperparams."""
 
-import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
