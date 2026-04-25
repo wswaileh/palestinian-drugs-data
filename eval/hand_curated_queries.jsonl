@@ -1,0 +1,3 @@
+{"query": "first-line antihypertensive for a 65-year-old with type 2 diabetes and CKD stage 3", "gold": ["losartan", "valsartan"]}
+{"query": "pediatric fever 38.5C in a 5-year-old, weight-based dose", "gold": ["acetaminophen", "ibuprofen"]}
+{"query": "broad-spectrum antibiotic for community-acquired pneumonia in adult outpatient", "gold": ["amoxicillin", "azithromycin"]}
