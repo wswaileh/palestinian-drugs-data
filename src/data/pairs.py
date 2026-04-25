@@ -95,3 +95,44 @@ def build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=None):
     logger.info("Type A: built %d triples for %d ingredients",
                 len(triples), len(train_ingredients))
     return triples
+
+
+def build_type_b_triples(by_ingredient, train_ingredients, queries_by_ingredient,
+                         atc_map, seed=None):
+    """Query → indication triples. One triple per (query, ingredient)."""
+    seed = config.SEED if seed is None else seed
+    rng = random.Random(seed)
+    train_set = set(train_ingredients)
+    neighbors = _atc_neighbors(atc_map, train_set)
+
+    triples = []
+    for ing in train_ingredients:
+        ind_chunks = [c for c in by_ingredient.get(ing, [])
+                      if c["section"] == "indications"]
+        if not ind_chunks:
+            continue
+        positive = ind_chunks[0]
+        for q in queries_by_ingredient.get(ing, []):
+            neg = _hard_negative(rng, ing, neighbors, train_set,
+                                 by_ingredient, "indications")
+            if neg is None:
+                continue
+            triples.append({"anchor": q, "positive": positive,
+                            "negative": neg, "kind": "B"})
+    rng.shuffle(triples)
+    logger.info("Type B: built %d triples", len(triples))
+    return triples
+
+
+def build_combined_dataset(by_ingredient, train_ingredients, queries_by_ingredient,
+                            atc_map, seed=None):
+    """Concatenate Type A and Type B triples and shuffle for 50/50 mixing."""
+    seed = config.SEED if seed is None else seed
+    a = build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=seed)
+    b = build_type_b_triples(by_ingredient, train_ingredients,
+                              queries_by_ingredient, atc_map, seed=seed + 1)
+    combined = a + b
+    random.Random(seed + 2).shuffle(combined)
+    logger.info("Combined dataset: %d triples (A=%d, B=%d)",
+                len(combined), len(a), len(b))
+    return combined
