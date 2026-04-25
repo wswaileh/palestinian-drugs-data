@@ -123,6 +123,14 @@ def main():
     else:
         triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map, atc_map)
 
+    if not triples:
+        logger.warning(
+            "Variant %s produced 0 training triples (likely %s missing or empty); "
+            "skipping training. Generate queries first.",
+            args.variant, config.GENERATED_QUERIES_PATH,
+        )
+        return
+
     train(triples, output_dir=Path(args.output_dir) / args.variant)
 
 
