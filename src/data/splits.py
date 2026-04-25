@@ -63,8 +63,10 @@ def save_split(train, test, train_path=None, test_path=None):
 def load_split(train_path=None, test_path=None):
     train_path = Path(train_path or config.TRAIN_INGREDIENTS_PATH)
     test_path  = Path(test_path  or config.TEST_INGREDIENTS_PATH)
-    train = [l.strip() for l in train_path.read_text().splitlines() if l.strip()]
-    test  = [l.strip() for l in test_path.read_text().splitlines()  if l.strip()]
+    train = [line.strip() for line in train_path.read_text().splitlines()
+             if line.strip()]
+    test = [line.strip() for line in test_path.read_text().splitlines()
+            if line.strip()]
     return train, test
 
 

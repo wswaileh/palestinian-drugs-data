@@ -24,6 +24,10 @@ def test_split_unmapped_ingredients_go_to_a_random_bucket(tiny_atc_map):
     assert set(train).isdisjoint(set(test))
     assert "unknown_x" in train + test
     assert "unknown_y" in train + test
+    # The two unknowns share the __UNMAPPED__ stratum; round(2 * 0.4) = 1
+    # of them must end up in test (proves the stratum was actually split).
+    unknowns_in_test = [x for x in ("unknown_x", "unknown_y") if x in test]
+    assert len(unknowns_in_test) == 1
 
 
 def test_save_and_load_round_trip(tmp_path):
