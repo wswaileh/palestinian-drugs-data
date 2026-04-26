@@ -158,16 +158,14 @@ def build_retriever(name, chunks):
 VARIANTS = ["bm25", "scibert_offshelf", "biobert_mnli", "minilm",
             "scibert_ft_a_only", "scibert_ft_b_only",
             "scibert_ft_ab_random", "scibert_ft_ab_atc",
+            # BM25-mined hard negatives (Phase 1.2)
+            "scibert_ft_ab_bm25",
+            "scibert_ft_ab_atc_bm25",
+            "scibert_ft_b_only_bm25",
+            "scibert_ft_b_only_atc_bm25",
             "rrf_bm25__scibert_ft_b_only",
-            "rrf_bm25__scibert_ft_ab_atc",
-            "rrf_bm25__minilm",
-            "rerank_scibert_ft_b_only",
-            "rerank_scibert_ft_ab_atc",
-            "bgererank_scibert_ft_b_only",
-            "bgererank_scibert_ft_ab_atc",
-            "aggrerank_scibert_ft_b_only",
-            "aggrerank_scibert_ft_ab_atc",
-            "aggrerank_rrf_bm25__scibert_ft_b_only"]
+            "rrf_bm25__scibert_ft_ab_atc_bm25",
+            "rrf_bm25__minilm"]
 
 
 def run_all(test_ingredients_path=None, queries_path=None, hand_path=None,

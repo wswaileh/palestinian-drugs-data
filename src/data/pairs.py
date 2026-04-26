@@ -69,12 +69,76 @@ def _hard_negative(rng, anchor_ing, neighbors, allowed_pool, by_ing, section):
     return rng.choice(candidates) if candidates else None
 
 
-def build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=None):
-    """Cross-section triples. One triple per (ingredient, non-indication section)."""
+def _build_section_bm25_index(by_ing, allowed_pool, section):
+    """Build a BM25 index over chunks of `section` belonging to `allowed_pool`.
+
+    Returns (chunks_in_index, BM25Okapi). Caller pairs them by position.
+    """
+    from rank_bm25 import BM25Okapi
+    chunks = [c for ing in allowed_pool
+              for c in by_ing.get(ing, [])
+              if c["section"] == section]
+    if not chunks:
+        return [], None
+    tokenized = [c["text"].lower().split() for c in chunks]
+    return chunks, BM25Okapi(tokenized)
+
+
+def _bm25_hard_negative(anchor_text, anchor_ing, allowed_pool, by_ing,
+                         section, bm25_cache):
+    """Pick a hard-negative chunk via BM25: highest-scoring non-self chunk
+    of the requested section. Cached per section across calls.
+
+    `bm25_cache` is a dict the caller provides; this helper populates it
+    on first use of each section so we only build the index once per
+    training run rather than once per anchor.
+    """
+    if section not in bm25_cache:
+        bm25_cache[section] = _build_section_bm25_index(by_ing, allowed_pool, section)
+    chunks, bm25 = bm25_cache[section]
+    if not chunks:
+        return None
+    scores = bm25.get_scores(anchor_text.lower().split())
+    # Walk down the ranked list until we hit a chunk from a different ingredient.
+    order = sorted(range(len(chunks)), key=lambda i: -scores[i])
+    for i in order:
+        if chunks[i]["ingredient"] != anchor_ing:
+            return chunks[i]
+    return None
+
+
+def _negatives_for(strategy, *, rng, anchor_ing, anchor_text, neighbors,
+                    train_set, by_ingredient, section, bm25_cache):
+    """Yield (negative_chunk, ...) tuples per the strategy.
+
+    "atc"     → one ATC-class hard negative
+    "bm25"    → one BM25 lexical hard negative
+    "atc+bm25" → both negatives (yields TWO triples per anchor)
+    """
+    out = []
+    if strategy in ("atc", "atc+bm25"):
+        n = _hard_negative(rng, anchor_ing, neighbors, train_set,
+                           by_ingredient, section)
+        if n is not None:
+            out.append(n)
+    if strategy in ("bm25", "atc+bm25"):
+        n = _bm25_hard_negative(anchor_text, anchor_ing, train_set,
+                                 by_ingredient, section, bm25_cache)
+        if n is not None:
+            out.append(n)
+    return out
+
+
+def build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=None,
+                          hard_neg_strategy="atc"):
+    """Cross-section triples. One triple per (ingredient, non-indication section,
+    negative). With hard_neg_strategy='atc+bm25' each anchor produces two
+    triples (one per negative type)."""
     seed = config.SEED if seed is None else seed
     rng = random.Random(seed)
     train_set = set(train_ingredients)
     neighbors = _atc_neighbors(atc_map, train_set)
+    bm25_cache = {}
 
     triples = []
     for ing in train_ingredients:
@@ -85,25 +149,29 @@ def build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=None):
             continue
         for pos in other_chunks:
             anchor = rng.choice(ind_chunks)
-            neg = _hard_negative(rng, ing, neighbors, train_set,
-                                 by_ingredient, pos["section"])
-            if neg is None:
-                continue
-            triples.append({"anchor": anchor, "positive": pos, "negative": neg,
-                            "kind": "A"})
+            negs = _negatives_for(hard_neg_strategy, rng=rng, anchor_ing=ing,
+                                   anchor_text=anchor["text"],
+                                   neighbors=neighbors, train_set=train_set,
+                                   by_ingredient=by_ingredient,
+                                   section=pos["section"],
+                                   bm25_cache=bm25_cache)
+            for neg in negs:
+                triples.append({"anchor": anchor, "positive": pos,
+                                "negative": neg, "kind": "A"})
     rng.shuffle(triples)
-    logger.info("Type A: built %d triples for %d ingredients",
-                len(triples), len(train_ingredients))
+    logger.info("Type A (%s): built %d triples for %d ingredients",
+                hard_neg_strategy, len(triples), len(train_ingredients))
     return triples
 
 
 def build_type_b_triples(by_ingredient, train_ingredients, queries_by_ingredient,
-                         atc_map, seed=None):
-    """Query → indication triples. One triple per (query, ingredient)."""
+                         atc_map, seed=None, hard_neg_strategy="atc"):
+    """Query → indication triples. One triple per (query, ingredient, negative)."""
     seed = config.SEED if seed is None else seed
     rng = random.Random(seed)
     train_set = set(train_ingredients)
     neighbors = _atc_neighbors(atc_map, train_set)
+    bm25_cache = {}
 
     triples = []
     for ing in train_ingredients:
@@ -113,26 +181,32 @@ def build_type_b_triples(by_ingredient, train_ingredients, queries_by_ingredient
             continue
         positive = ind_chunks[0]
         for q in queries_by_ingredient.get(ing, []):
-            neg = _hard_negative(rng, ing, neighbors, train_set,
-                                 by_ingredient, "indications")
-            if neg is None:
-                continue
-            triples.append({"anchor": q, "positive": positive,
-                            "negative": neg, "kind": "B"})
+            negs = _negatives_for(hard_neg_strategy, rng=rng, anchor_ing=ing,
+                                   anchor_text=q, neighbors=neighbors,
+                                   train_set=train_set,
+                                   by_ingredient=by_ingredient,
+                                   section="indications",
+                                   bm25_cache=bm25_cache)
+            for neg in negs:
+                triples.append({"anchor": q, "positive": positive,
+                                "negative": neg, "kind": "B"})
     rng.shuffle(triples)
     logger.info("Type B: built %d triples", len(triples))
     return triples
 
 
 def build_combined_dataset(by_ingredient, train_ingredients, queries_by_ingredient,
-                            atc_map, seed=None):
+                            atc_map, seed=None, hard_neg_strategy="atc"):
     """Concatenate Type A and Type B triples and shuffle for 50/50 mixing."""
     seed = config.SEED if seed is None else seed
-    a = build_type_a_triples(by_ingredient, train_ingredients, atc_map, seed=seed)
+    a = build_type_a_triples(by_ingredient, train_ingredients, atc_map,
+                              seed=seed, hard_neg_strategy=hard_neg_strategy)
     b = build_type_b_triples(by_ingredient, train_ingredients,
-                              queries_by_ingredient, atc_map, seed=seed + 1)
+                              queries_by_ingredient, atc_map,
+                              seed=seed + 1,
+                              hard_neg_strategy=hard_neg_strategy)
     combined = a + b
     random.Random(seed + 2).shuffle(combined)
-    logger.info("Combined dataset: %d triples (A=%d, B=%d)",
-                len(combined), len(a), len(b))
+    logger.info("Combined dataset (%s): %d triples (A=%d, B=%d)",
+                hard_neg_strategy, len(combined), len(a), len(b))
     return combined

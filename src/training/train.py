@@ -97,8 +97,12 @@ def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
     parser = argparse.ArgumentParser()
     parser.add_argument("--variant", default="ab_atc",
-                        choices=["a_only", "b_only", "ab_random", "ab_atc"])
+                        choices=["a_only", "b_only", "ab_random", "ab_atc",
+                                  "ab_bm25", "ab_atc_bm25",
+                                  "b_only_bm25", "b_only_atc_bm25"])
     parser.add_argument("--output-dir", default="checkpoints/scibert_ft")
+    parser.add_argument("--encoder", default=config.ENCODER_MODEL,
+                        help="HuggingFace model name to fine-tune")
     args = parser.parse_args()
 
     by_ing = pairs.load_chunks_by_ingredient()
@@ -113,25 +117,42 @@ def main():
 
     atc_map = json.loads(config.ATC_CACHE_PATH.read_text())
 
-    if args.variant == "ab_random":
+    # Map variant name → (data-builder, hard_neg_strategy, ablate-atc-mapping?)
+    variant = args.variant
+    if variant == "ab_random":
         atc_map = {ing: [] for ing in atc_map}  # disables ATC hard negatives
-
-    if args.variant == "a_only":
-        triples = pairs.build_type_a_triples(by_ing, train_ings, atc_map)
-    elif args.variant == "b_only":
-        triples = pairs.build_type_b_triples(by_ing, train_ings, queries_map, atc_map)
-    else:
-        triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map, atc_map)
+        triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map,
+                                                atc_map, hard_neg_strategy="atc")
+    elif variant == "a_only":
+        triples = pairs.build_type_a_triples(by_ing, train_ings, atc_map,
+                                              hard_neg_strategy="atc")
+    elif variant == "b_only":
+        triples = pairs.build_type_b_triples(by_ing, train_ings, queries_map,
+                                              atc_map, hard_neg_strategy="atc")
+    elif variant == "ab_atc":
+        triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map,
+                                                atc_map, hard_neg_strategy="atc")
+    elif variant == "ab_bm25":
+        triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map,
+                                                atc_map, hard_neg_strategy="bm25")
+    elif variant == "ab_atc_bm25":
+        triples = pairs.build_combined_dataset(by_ing, train_ings, queries_map,
+                                                atc_map, hard_neg_strategy="atc+bm25")
+    elif variant == "b_only_bm25":
+        triples = pairs.build_type_b_triples(by_ing, train_ings, queries_map,
+                                              atc_map, hard_neg_strategy="bm25")
+    elif variant == "b_only_atc_bm25":
+        triples = pairs.build_type_b_triples(by_ing, train_ings, queries_map,
+                                              atc_map, hard_neg_strategy="atc+bm25")
 
     if not triples:
         logger.warning(
-            "Variant %s produced 0 training triples (likely %s missing or empty); "
-            "skipping training. Generate queries first.",
-            args.variant, config.GENERATED_QUERIES_PATH,
-        )
+            "Variant %s produced 0 training triples; skipping training.",
+            variant)
         return
 
-    train(triples, output_dir=Path(args.output_dir) / args.variant)
+    train(triples, output_dir=Path(args.output_dir) / variant,
+          model_name=args.encoder)
 
 
 if __name__ == "__main__":

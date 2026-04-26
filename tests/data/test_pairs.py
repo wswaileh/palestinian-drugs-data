@@ -86,3 +86,34 @@ def test_combined_dataset_mixes_a_and_b(tiny_chunks_file, tiny_atc_map):
             assert isinstance(t["anchor"], dict)
         else:
             assert isinstance(t["anchor"], str)
+
+
+def test_bm25_hard_negative_picks_lexically_close_drug(tiny_chunks_file, tiny_atc_map):
+    """For an ibuprofen anchor, BM25 should pull naproxen (shared NSAID
+    vocabulary like 'pain'/'inflammation') as the hard negative — NOT
+    metformin (shares no vocabulary). This is the failure mode ATC
+    hard-negs may miss when ATC mapping is incomplete."""
+    by_ing = pairs.load_chunks_by_ingredient(tiny_chunks_file)
+    train = ["ibuprofen", "naproxen", "metformin"]
+    triples = pairs.build_type_a_triples(by_ing, train, tiny_atc_map,
+                                         seed=42, hard_neg_strategy="bm25")
+    ibu_triples = [t for t in triples if t["anchor"]["ingredient"] == "ibuprofen"]
+    assert ibu_triples, "expected ibuprofen anchors"
+    for t in ibu_triples:
+        assert t["negative"]["ingredient"] != "ibuprofen"
+        # naproxen shares 'pain'/'inflammation' with ibuprofen; metformin
+        # has 'glucose'/'diabetes'. BM25 must pick naproxen.
+        assert t["negative"]["ingredient"] == "naproxen"
+
+
+def test_atc_plus_bm25_doubles_triple_count(tiny_chunks_file, tiny_atc_map):
+    """The atc+bm25 strategy emits two triples per anchor (one per neg type)."""
+    by_ing = pairs.load_chunks_by_ingredient(tiny_chunks_file)
+    train = ["ibuprofen", "naproxen", "metformin"]
+    atc_only = pairs.build_type_a_triples(by_ing, train, tiny_atc_map,
+                                          seed=42, hard_neg_strategy="atc")
+    both = pairs.build_type_a_triples(by_ing, train, tiny_atc_map,
+                                       seed=42, hard_neg_strategy="atc+bm25")
+    # 2x more triples (or close — depends on whether BM25 finds a non-self peer)
+    assert len(both) >= len(atc_only)
+    assert len(both) <= 2 * len(atc_only)
