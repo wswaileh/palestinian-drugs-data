@@ -10,6 +10,11 @@ import pandas as pd
 
 from src import config
 from src.eval.baselines import BM25Retriever, DenseRetriever, RRFRetriever
+from src.eval.reranker import CrossEncoderReranker
+
+CE_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+CE_BGE = "BAAI/bge-reranker-base"
+CE_BGE_LARGE = "BAAI/bge-reranker-large"
 from src.eval.metrics import (mrr_at_k, ndcg_at_k, paired_bootstrap,
                                recall_at_k)
 
@@ -114,6 +119,35 @@ def build_retriever(name, chunks):
         backend_names = name[len("rrf_"):].split("__")
         backends = [build_retriever(b, chunks) for b in backend_names]
         r = RRFRetriever(backends)
+    elif name.startswith("rerank_"):
+        # rerank_<first_stage> wraps a first-stage retriever with a
+        # cross-encoder. If a fine-tuned CE is on disk, prefer it; otherwise
+        # fall back to the off-the-shelf MS-MARCO model.
+        first_stage_name = name[len("rerank_"):]
+        first_stage = build_retriever(first_stage_name, chunks)
+        ft_ce_dir = config.CHECKPOINT_DIR / "cross_encoder" / "ab_atc"
+        ce_model_to_use = str(ft_ce_dir) if ft_ce_dir.exists() else CE_MODEL
+        r = CrossEncoderReranker(first_stage, ce_model_to_use, top_k_first=50)
+    elif name.startswith("ftrerank_"):
+        # ftrerank_* explicitly uses the fine-tuned CE (fails loud if missing).
+        first_stage_name = name[len("ftrerank_"):]
+        first_stage = build_retriever(first_stage_name, chunks)
+        ft_ce_dir = config.CHECKPOINT_DIR / "cross_encoder" / "ab_atc"
+        if not ft_ce_dir.exists():
+            raise FileNotFoundError(
+                f"fine-tuned CE not found at {ft_ce_dir}; train first")
+        r = CrossEncoderReranker(first_stage, str(ft_ce_dir), top_k_first=50)
+    elif name.startswith("bgererank_"):
+        # bgererank_* uses BGE-reranker-base (stronger off-the-shelf CE).
+        first_stage_name = name[len("bgererank_"):]
+        first_stage = build_retriever(first_stage_name, chunks)
+        r = CrossEncoderReranker(first_stage, CE_BGE, top_k_first=50)
+    elif name.startswith("aggrerank_"):
+        # aggrerank_* uses BGE-reranker with ingredient-level max-pooling.
+        first_stage_name = name[len("aggrerank_"):]
+        first_stage = build_retriever(first_stage_name, chunks)
+        r = CrossEncoderReranker(first_stage, CE_BGE, top_k_first=50,
+                                  aggregate_by_ingredient=True)
     else:
         raise ValueError(f"unknown retriever {name}")
 
@@ -126,7 +160,14 @@ VARIANTS = ["bm25", "scibert_offshelf", "biobert_mnli", "minilm",
             "scibert_ft_ab_random", "scibert_ft_ab_atc",
             "rrf_bm25__scibert_ft_b_only",
             "rrf_bm25__scibert_ft_ab_atc",
-            "rrf_bm25__minilm"]
+            "rrf_bm25__minilm",
+            "rerank_scibert_ft_b_only",
+            "rerank_scibert_ft_ab_atc",
+            "bgererank_scibert_ft_b_only",
+            "bgererank_scibert_ft_ab_atc",
+            "aggrerank_scibert_ft_b_only",
+            "aggrerank_scibert_ft_ab_atc",
+            "aggrerank_rrf_bm25__scibert_ft_b_only"]
 
 
 def run_all(test_ingredients_path=None, queries_path=None, hand_path=None,
