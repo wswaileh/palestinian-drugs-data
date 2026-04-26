@@ -38,14 +38,16 @@ def _triple_to_example(t):
     return InputExample(texts=[anchor, t["positive"]["text"], t["negative"]["text"]])
 
 
-def _build_model(model_name):
-    word = models.Transformer(model_name, max_seq_length=config.MAX_SEQ_LENGTH)
+def _build_model(model_name, max_seq_length=None):
+    max_seq_length = config.MAX_SEQ_LENGTH if max_seq_length is None else max_seq_length
+    word = models.Transformer(model_name, max_seq_length=max_seq_length)
     pool = models.Pooling(word.get_word_embedding_dimension(), pooling_mode="mean")
     return SentenceTransformer(modules=[word, pool])
 
 
 def train(triples, output_dir, epochs=None, batch_size=None,
-          learning_rate=None, model_name=None, warmup_ratio=None):
+          learning_rate=None, model_name=None, warmup_ratio=None,
+          max_seq_length=None):
     """Train and save a SentenceTransformer model.
 
     Each `triples` element must have `anchor` (str or {text}), `positive` ({text}),
@@ -63,7 +65,7 @@ def train(triples, output_dir, epochs=None, batch_size=None,
 
     examples = [_triple_to_example(t) for t in triples]
     loader = DataLoader(examples, batch_size=batch_size, shuffle=True)
-    model = _build_model(model_name)
+    model = _build_model(model_name, max_seq_length=max_seq_length)
     loss = losses.MultipleNegativesRankingLoss(model)
 
     steps_per_epoch = len(loader)
@@ -103,6 +105,12 @@ def main():
     parser.add_argument("--output-dir", default="checkpoints/scibert_ft")
     parser.add_argument("--encoder", default=config.ENCODER_MODEL,
                         help="HuggingFace model name to fine-tune")
+    parser.add_argument("--epochs", type=int, default=config.EPOCHS,
+                        help="Override training epochs (default 3)")
+    parser.add_argument("--batch-size", type=int, default=config.BATCH_SIZE,
+                        help="Override batch size (default 32; RTX 3080 fits 64)")
+    parser.add_argument("--max-seq", type=int, default=config.MAX_SEQ_LENGTH,
+                        help="Override max seq length (default 256; 128 is ~2x faster)")
     args = parser.parse_args()
 
     by_ing = pairs.load_chunks_by_ingredient()
@@ -152,7 +160,8 @@ def main():
         return
 
     train(triples, output_dir=Path(args.output_dir) / variant,
-          model_name=args.encoder)
+          model_name=args.encoder, epochs=args.epochs,
+          batch_size=args.batch_size, max_seq_length=args.max_seq)
 
 
 if __name__ == "__main__":
