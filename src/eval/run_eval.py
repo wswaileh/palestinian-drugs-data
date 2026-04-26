@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from src import config
-from src.eval.baselines import BM25Retriever, DenseRetriever
+from src.eval.baselines import BM25Retriever, DenseRetriever, RRFRetriever
 from src.eval.metrics import (mrr_at_k, ndcg_at_k, paired_bootstrap,
                                recall_at_k)
 
@@ -85,26 +85,48 @@ def evaluate_retriever(retriever, queries, k_max=20):
     return out
 
 
+_BUILT_RETRIEVERS = {}
+
+
 def build_retriever(name, chunks):
-    """Construct the retriever named in the ablation table."""
+    """Construct the retriever named in the ablation table.
+
+    Cached by name to avoid re-encoding the corpus when an RRF variant
+    references a backend that was already built standalone.
+    """
+    if name in _BUILT_RETRIEVERS:
+        return _BUILT_RETRIEVERS[name]
+
     if name == "bm25":
-        return BM25Retriever(chunks)
-    if name == "scibert_offshelf":
-        return DenseRetriever(chunks, model_name=config.ENCODER_MODEL)
-    if name == "biobert_mnli":
-        return DenseRetriever(chunks, model_name="pritamdeka/BioBERT-mnli-snli-stsb")
-    if name == "minilm":
-        return DenseRetriever(chunks, model_name="sentence-transformers/all-MiniLM-L6-v2")
-    if name.startswith("scibert_ft_"):
+        r = BM25Retriever(chunks)
+    elif name == "scibert_offshelf":
+        r = DenseRetriever(chunks, model_name=config.ENCODER_MODEL)
+    elif name == "biobert_mnli":
+        r = DenseRetriever(chunks, model_name="pritamdeka/BioBERT-mnli-snli-stsb")
+    elif name == "minilm":
+        r = DenseRetriever(chunks, model_name="sentence-transformers/all-MiniLM-L6-v2")
+    elif name.startswith("scibert_ft_"):
         variant = name[len("scibert_ft_"):]
-        return DenseRetriever(chunks,
-                              model_name=str(config.CHECKPOINT_DIR / "scibert_ft" / variant))
-    raise ValueError(f"unknown retriever {name}")
+        r = DenseRetriever(chunks,
+                            model_name=str(config.CHECKPOINT_DIR / "scibert_ft" / variant))
+    elif name.startswith("rrf_"):
+        # rrf_<a>__<b> fuses backends a and b (double underscore separator)
+        backend_names = name[len("rrf_"):].split("__")
+        backends = [build_retriever(b, chunks) for b in backend_names]
+        r = RRFRetriever(backends)
+    else:
+        raise ValueError(f"unknown retriever {name}")
+
+    _BUILT_RETRIEVERS[name] = r
+    return r
 
 
 VARIANTS = ["bm25", "scibert_offshelf", "biobert_mnli", "minilm",
             "scibert_ft_a_only", "scibert_ft_b_only",
-            "scibert_ft_ab_random", "scibert_ft_ab_atc"]
+            "scibert_ft_ab_random", "scibert_ft_ab_atc",
+            "rrf_bm25__scibert_ft_b_only",
+            "rrf_bm25__scibert_ft_ab_atc",
+            "rrf_bm25__minilm"]
 
 
 def run_all(test_ingredients_path=None, queries_path=None, hand_path=None,

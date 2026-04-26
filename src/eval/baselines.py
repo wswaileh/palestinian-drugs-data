@@ -54,3 +54,35 @@ class DenseRetriever:
         sims = (self.embeddings @ q[0])
         idx = np.argsort(-sims)[:k]
         return [self.chunks[i] for i in idx]
+
+
+class RRFRetriever:
+    """Reciprocal Rank Fusion of two or more retrievers.
+
+    For each retriever's ranked list, each chunk gets a score 1/(k0 + rank).
+    Scores are summed across retrievers. The RRF constant k0=60 is the
+    Cormack-Clarke-Buettcher 2009 default; results are insensitive to it.
+
+    Operates at chunk-id granularity. Chunks not retrieved by a given
+    backend contribute 0 from that backend.
+    """
+
+    K0 = 60
+
+    def __init__(self, retrievers, fusion_k=100):
+        """`retrievers`: list of objects with .retrieve(query, k). `fusion_k`
+        is how deep we look in each backend before fusing."""
+        self.retrievers = list(retrievers)
+        self.fusion_k = fusion_k
+
+    def retrieve(self, query, k=10):
+        scores = {}
+        chunk_by_id = {}
+        for retriever in self.retrievers:
+            hits = retriever.retrieve(query, k=self.fusion_k)
+            for rank, hit in enumerate(hits, start=1):
+                cid = hit["chunk_id"]
+                scores[cid] = scores.get(cid, 0.0) + 1.0 / (self.K0 + rank)
+                chunk_by_id.setdefault(cid, hit)
+        ordered_ids = sorted(scores, key=lambda c: -scores[c])[:k]
+        return [chunk_by_id[c] for c in ordered_ids]
