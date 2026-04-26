@@ -66,7 +66,7 @@ def build_query_set(ingredients, indications_by_ingredient, cache_path=None):
     cache_path = Path(cache_path or config.GENERATED_QUERIES_PATH)
     done = {}
     if cache_path.exists():
-        for line in cache_path.read_text().splitlines():
+        for line in cache_path.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 rec = json.loads(line)
                 done[rec["ingredient"]] = rec["queries"]
@@ -79,7 +79,7 @@ def build_query_set(ingredients, indications_by_ingredient, cache_path=None):
 
     client = _make_client()
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(cache_path, "a") as fh:
+    with open(cache_path, "a", encoding="utf-8") as fh:
         for i, ing in enumerate(todo, 1):
             ind_text = indications_by_ingredient.get(ing, "")
             if not ind_text.strip():

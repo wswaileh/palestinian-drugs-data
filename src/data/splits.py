@@ -56,16 +56,16 @@ def save_split(train, test, train_path=None, test_path=None):
     train_path = Path(train_path or config.TRAIN_INGREDIENTS_PATH)
     test_path  = Path(test_path  or config.TEST_INGREDIENTS_PATH)
     train_path.parent.mkdir(parents=True, exist_ok=True)
-    train_path.write_text("\n".join(train) + "\n")
-    test_path.write_text("\n".join(test) + "\n")
+    train_path.write_text("\n".join(train) + "\n", encoding="utf-8")
+    test_path.write_text("\n".join(test) + "\n", encoding="utf-8")
 
 
 def load_split(train_path=None, test_path=None):
     train_path = Path(train_path or config.TRAIN_INGREDIENTS_PATH)
     test_path  = Path(test_path  or config.TEST_INGREDIENTS_PATH)
-    train = [line.strip() for line in train_path.read_text().splitlines()
+    train = [line.strip() for line in train_path.read_text(encoding="utf-8").splitlines()
              if line.strip()]
-    test = [line.strip() for line in test_path.read_text().splitlines()
+    test = [line.strip() for line in test_path.read_text(encoding="utf-8").splitlines()
             if line.strip()]
     return train, test
 
@@ -78,7 +78,7 @@ def main():
 
     ing = pd.read_parquet(config.INGREDIENTS_PATH)
     found = sorted(ing[ing["found"]]["ingredient"].tolist())
-    atc_map = json.loads(config.ATC_CACHE_PATH.read_text())
+    atc_map = json.loads(config.ATC_CACHE_PATH.read_text(encoding="utf-8"))
 
     train, test = stratified_split(found, atc_map)
     save_split(train, test)

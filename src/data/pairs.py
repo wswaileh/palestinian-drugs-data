@@ -27,7 +27,7 @@ def load_chunks_by_ingredient(path=None):
     """Group `chunks.jsonl` records by ingredient. Returns {ing: [chunk, ...]}."""
     path = Path(path or config.CHUNKS_PATH)
     out = defaultdict(list)
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:

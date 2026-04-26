@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 def load_chunks():
     chunks = []
-    with open(config.CHUNKS_PATH) as fh:
+    with open(config.CHUNKS_PATH, encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if line:
@@ -36,7 +36,7 @@ def load_set1(test_ingredients, generated_queries_path):
     is in `test_ingredients`."""
     test_set = set(test_ingredients)
     queries = []
-    with open(generated_queries_path) as fh:
+    with open(generated_queries_path, encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -52,7 +52,7 @@ def load_set1(test_ingredients, generated_queries_path):
 def load_set2(path):
     """Hand-curated queries from JSONL. Each record: {query, gold: [ing,...]}."""
     out = []
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if line and not line.startswith("//"):
@@ -110,6 +110,16 @@ def build_retriever(name, chunks):
         r = DenseRetriever(chunks, model_name="pritamdeka/BioBERT-mnli-snli-stsb")
     elif name == "minilm":
         r = DenseRetriever(chunks, model_name="sentence-transformers/all-MiniLM-L6-v2")
+    # Phase 1.3: off-the-shelf alternative encoders (no fine-tuning).
+    elif name == "bge_base_offshelf":
+        r = DenseRetriever(chunks, model_name="BAAI/bge-base-en-v1.5")
+    elif name == "pubmedbert_offshelf":
+        r = DenseRetriever(chunks,
+            model_name="microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext")
+    elif name == "sapbert_offshelf":
+        r = DenseRetriever(chunks, model_name="cambridgeltl/SapBERT-from-PubMedBERT-fulltext")
+    elif name == "spubmedbert_msmarco":
+        r = DenseRetriever(chunks, model_name="pritamdeka/S-PubMedBert-MS-MARCO")
     elif name.startswith("scibert_ft_"):
         variant = name[len("scibert_ft_"):]
         r = DenseRetriever(chunks,
@@ -156,9 +166,12 @@ def build_retriever(name, chunks):
 
 
 VARIANTS = ["bm25", "scibert_offshelf", "biobert_mnli", "minilm",
+            # Phase 1.3: off-the-shelf alternative encoders
+            "bge_base_offshelf", "pubmedbert_offshelf",
+            "sapbert_offshelf", "spubmedbert_msmarco",
             "scibert_ft_a_only", "scibert_ft_b_only",
             "scibert_ft_ab_random", "scibert_ft_ab_atc",
-            # BM25-mined hard negatives (Phase 1.2)
+            # BM25-mined hard negatives (Phase 1.2 — train on Colab when available)
             "scibert_ft_ab_bm25",
             "scibert_ft_ab_atc_bm25",
             "scibert_ft_b_only_bm25",
@@ -177,7 +190,7 @@ def run_all(test_ingredients_path=None, queries_path=None, hand_path=None,
     output_dir.mkdir(parents=True, exist_ok=True)
 
     chunks = load_chunks()
-    test_ings = [l.strip() for l in Path(test_ingredients_path).read_text().splitlines()
+    test_ings = [l.strip() for l in Path(test_ingredients_path).read_text(encoding="utf-8").splitlines()
                  if l.strip()]
     set1 = load_set1(test_ings, queries_path)
     set2 = load_set2(hand_path) if Path(hand_path).exists() else []

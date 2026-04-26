@@ -110,12 +110,12 @@ def main():
 
     queries_map = {}
     if config.GENERATED_QUERIES_PATH.exists():
-        for line in config.GENERATED_QUERIES_PATH.read_text().splitlines():
+        for line in config.GENERATED_QUERIES_PATH.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 rec = json.loads(line)
                 queries_map[rec["ingredient"]] = rec["queries"]
 
-    atc_map = json.loads(config.ATC_CACHE_PATH.read_text())
+    atc_map = json.loads(config.ATC_CACHE_PATH.read_text(encoding="utf-8"))
 
     # Map variant name → (data-builder, hard_neg_strategy, ablate-atc-mapping?)
     variant = args.variant

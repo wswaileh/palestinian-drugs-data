@@ -60,18 +60,18 @@ def build_mapping(ingredients, cache_path=None):
     cache_path = Path(cache_path or config.ATC_CACHE_PATH)
     cache = {}
     if cache_path.exists():
-        cache = json.loads(cache_path.read_text())
+        cache = json.loads(cache_path.read_text(encoding="utf-8"))
 
     todo = [i for i in ingredients if i not in cache]
     logger.info("ATC: %d cached, %d to fetch", len(cache), len(todo))
     for i, name in enumerate(todo, 1):
         cache[name] = lookup_atc(name)
         if i % 25 == 0:
-            cache_path.write_text(json.dumps(cache, indent=2))
+            cache_path.write_text(json.dumps(cache, indent=2), encoding="utf-8")
             logger.info("ATC progress: %d/%d", i, len(todo))
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps(cache, indent=2))
+    cache_path.write_text(json.dumps(cache, indent=2), encoding="utf-8")
     return {k: cache[k] for k in ingredients}
 
 
