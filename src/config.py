@@ -39,7 +39,7 @@ EPOCHS = 3
 
 # LLM query generation
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
-QUERIES_PER_INGREDIENT = 3
+QUERIES_PER_INGREDIENT = 6
 
 # Eval
 RECALL_KS = (1, 5, 10)

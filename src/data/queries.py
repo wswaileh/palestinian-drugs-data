@@ -11,12 +11,18 @@ from src import config
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = (
-    "You are a clinical pharmacist. For the given drug ingredient, write 3 "
+    "You are a clinical pharmacist. For the given drug ingredient, write 6 "
     "realistic short queries a clinician or patient would type into a "
     "drug-recommendation system that this drug should retrieve. "
-    "Vary phrasing: one symptom-first, one patient-population-first, one "
-    "mechanism- or condition-first. Each query under 25 words. "
-    "Return strict JSON: {\"queries\": [\"...\", \"...\", \"...\"]}."
+    "Each query under 25 words. Use ONE of each of these distinct angles, "
+    "in order, and DO NOT echo the indication wording verbatim — paraphrase: "
+    "(1) symptom-first (e.g. 'sharp chest pain on inspiration'), "
+    "(2) patient-population-first (e.g. 'elderly with CKD stage 3'), "
+    "(3) mechanism-or-class-first (e.g. 'ACE inhibitor for proteinuria'), "
+    "(4) comorbidity-first (e.g. 'asthma patient also needing beta-blocker'), "
+    "(5) outcome-or-complication-first (e.g. 'prevent stroke in atrial fibrillation'), "
+    "(6) constraint-first (e.g. 'pregnancy-safe alternative for migraine'). "
+    "Return strict JSON: {\"queries\": [\"q1\", \"q2\", \"q3\", \"q4\", \"q5\", \"q6\"]}."
 )
 
 
